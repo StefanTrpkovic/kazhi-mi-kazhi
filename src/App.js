@@ -26,7 +26,6 @@ export default function App() {
 
   return (
     <div className="question-container1">
-      <AdComponent />
       <div className="question-headers">
         <h2>Сконцентрирај се убаво.</h2>
         <h2>
@@ -58,7 +57,6 @@ export default function App() {
         </div>
         <div className="ball-shadow"></div>
       </div>
-      <AdComponent />
     </div>
   );
 }
