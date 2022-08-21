@@ -60,7 +60,7 @@ i18n.use(initReactI18next).init({
       },
     },
   },
-  lng: "en",
+  lng: "mk",
   fallbackLng: "en",
 });
 
