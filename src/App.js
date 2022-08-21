@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import "./App.css";
 import AdComponent from "./AdComponent";
 import { possibleAnswers } from "./constants";
+import { useTranslation } from "react-i18next";
+import "./i18n";
 
 export default function App() {
   const [userInput, setUserInput] = useState("");
   const [randomIndex, setRandomIndex] = useState(0);
+  const { t } = useTranslation();
 
   const ask = () => {
     if (userInput) {
@@ -27,11 +30,8 @@ export default function App() {
   return (
     <div className="question-container1">
       <div className="question-headers">
-        <h2>Сконцентрирај се убаво.</h2>
-        <h2>
-          Помисли на прашање, постави го и магичната топка ќе ти го покаже
-          патот.
-        </h2>
+        <h2>{t(`focus`)}</h2>
+        <h2>{t(`thinkOfAQuestion`)}</h2>
       </div>
       <div className="question-container">
         <input
@@ -40,10 +40,10 @@ export default function App() {
           value={userInput}
           onChange={handleChange}
           onKeyDown={handleKeypress}
-          placeholder="Постави прашање"
+          placeholder={t(`askAQuestion`)}
         />
         <button className="input" onClick={ask}>
-          Кажи ми кажи!
+          {t(`tellMePlease`)}
         </button>
       </div>
 
