@@ -60,7 +60,7 @@ i18n.use(initReactI18next).init({
       },
     },
   },
-  lng: "mk",
+  lng: process.env.REACT_APP_LANGUAGE,
   fallbackLng: "en",
 });
 
