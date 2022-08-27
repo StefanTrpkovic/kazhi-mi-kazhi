@@ -4,7 +4,6 @@ import AdComponent from "./AdComponent";
 import { possibleAnswers } from "./constants";
 import { useTranslation } from "react-i18next";
 import "./i18n";
-import React from "react";
 import AdSense from "react-adsense";
 
 export default function App() {
