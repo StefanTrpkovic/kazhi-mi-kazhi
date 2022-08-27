@@ -4,6 +4,8 @@ import AdComponent from "./AdComponent";
 import { possibleAnswers } from "./constants";
 import { useTranslation } from "react-i18next";
 import "./i18n";
+import React from "react";
+import AdSense from "react-adsense";
 
 export default function App() {
   const [userInput, setUserInput] = useState("");
@@ -28,35 +30,44 @@ export default function App() {
   const answer = possibleAnswers[randomIndex];
 
   return (
-    <div className="question-container1">
-      <div className="question-headers">
-        <h2>{t(`focus`)}</h2>
-        <h2>{t(`thinkOfAQuestion`)}</h2>
-      </div>
-      <div className="question-container">
-        <input
-          className="input"
-          type="text"
-          value={userInput}
-          onChange={handleChange}
-          onKeyDown={handleKeypress}
-          placeholder={t(`askAQuestion`)}
-        />
-        <button className="input" onClick={ask}>
-          {t(`tellMePlease`)}
-        </button>
-      </div>
+    <>
+      <div className="question-container1">
+        <div className="question-headers">
+          <h2>{t(`focus`)}</h2>
+          <h2>{t(`thinkOfAQuestion`)}</h2>
+        </div>
+        <div className="question-container">
+          <input
+            className="input"
+            type="text"
+            value={userInput}
+            onChange={handleChange}
+            onKeyDown={handleKeypress}
+            placeholder={t(`askAQuestion`)}
+          />
+          <button className="input" onClick={ask}>
+            {t(`tellMePlease`)}
+          </button>
+        </div>
 
-      <div className="ball-container">
-        <div className="ball-black-outer">
-          <div className="ball-white-inner">
-            <div>
-              {answer !== "8" ? answer : <div className="eight">8</div>}
+        <div className="ball-container">
+          <div className="ball-black-outer">
+            <div className="ball-white-inner">
+              <div>
+                {answer !== "8" ? answer : <div className="eight">8</div>}
+              </div>
             </div>
           </div>
+          <div className="ball-shadow"></div>
         </div>
-        <div className="ball-shadow"></div>
       </div>
-    </div>
+      <AdSense.Google
+        client={`ca-pub-${process.env.REACT_APP_AD_ID}`}
+        slot={process.env.REACT_APP_AD_SLOT}
+        style={{ display: "block" }}
+        layout="in-article"
+        format="auto"
+      />
+    </>
   );
 }
